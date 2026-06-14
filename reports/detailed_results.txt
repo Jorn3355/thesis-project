@@ -1,0 +1,171 @@
+APPENDIX C - DETAILED RESULTS AND ADDITIONAL TABLES
+Generated with RANDOM_STATE=42 on N_TRAIN=5000 matches.
+All tables reproducible by running:  python detailed_results.py
+
+==============================================================================
+  Table C.1 - Full feature importance ranking (Random Forest, Gini)
+==============================================================================
+
+                   feature  importance
+rank                                  
+1           time_on_target      0.3138
+2                  score_z      0.1815
+3      tier_relative_score      0.1235
+4            reaction_time      0.1000
+5      tier_relative_kills      0.0674
+6              shots_fired      0.0554
+7                  kills_z      0.0477
+8                  assists      0.0291
+9                 deaths_z      0.0159
+10    tier_relative_deaths      0.0147
+11                     kda      0.0136
+12                   kills      0.0133
+13               shots_hit      0.0053
+14                kd_ratio      0.0043
+15                  deaths      0.0038
+16            hit_accuracy      0.0033
+17                   score      0.0024
+18          score_per_kill      0.0017
+19                    tier      0.0017
+20         precision_score      0.0009
+21           kill_distance      0.0002
+22           aim_deviation      0.0002
+23      sub_100ms_reaction      0.0001
+24                wallbang      0.0000
+25       sub_50ms_reaction      0.0000
+
+==============================================================================
+  Table C.2 - Mann-Whitney U + effect sizes (all 25 features)
+==============================================================================
+
+Sorted by |rank_biserial_r| descending. p-values rounded to 4 dp; values
+below 1e-4 shown as <0.0001.
+
+                      mean_legit  mean_triggerbot  cohens_d  rank_biserial_r  p_value
+feature                                                                              
+time_on_target          278.8586          40.4719   -4.2264          -0.9996  <0.0001
+score_z                  -0.0349           5.6106    2.8264           0.9710  <0.0001
+tier_relative_score      -9.1797        1952.5894    2.3375           0.9622  <0.0001
+reaction_time           451.4734         210.4722   -2.6140          -0.9408  <0.0001
+kills_z                  -0.0109           3.6570    1.9496           0.8492  <0.0001
+tier_relative_kills      -0.0436          14.6281    1.9496           0.8492  <0.0001
+deaths_z                 -0.0080          -1.6999   -1.6199          -0.7480  <0.0001
+tier_relative_deaths     -0.0288          -4.9716   -1.5882          -0.7390  <0.0001
+kda                       4.1156          19.3558    1.0459           0.7307  <0.0001
+kd_ratio                  2.8907          13.6105    1.0202           0.7068  <0.0001
+shots_fired               5.5074           2.0016   -1.6373          -0.6961  <0.0001
+assists                   6.9740          13.2103    1.4332           0.6890  <0.0001
+kills                    15.9508          30.7869    1.4111           0.6728  <0.0001
+deaths                    9.3697           4.3339   -1.3457          -0.6467  <0.0001
+score                  2126.3545        4115.1643    1.3433           0.6354  <0.0001
+hit_accuracy              0.6497           0.8621    0.8366           0.4217  <0.0001
+shots_hit                 3.2537           1.6677   -0.9344          -0.4089  <0.0001
+precision_score           0.4461           0.5803    0.3601           0.3097  <0.0001
+sub_100ms_reaction        0.0000           0.0560    0.3443           0.0560  <0.0001
+tier                     13.8007          14.0668    0.0341           0.0197   0.2276
+kill_distance           487.3687         493.9071    0.0228           0.0130   0.4277
+aim_deviation             1.8026           1.8155    0.0188           0.0087   0.5933
+score_per_kill          149.4779         153.1679    0.0285           0.0079   0.6286
+wallbang                  0.0000           0.0000    0.0000           0.0000   1.0000
+sub_50ms_reaction         0.0000           0.0000    0.0000           0.0000   1.0000
+
+==============================================================================
+  Table C.3 - Per-fold cross-validation breakdown (5 folds)
+==============================================================================
+
+--- RandomForest ---
+      accuracy  precision  recall     f1  roc_auc  average_precision
+fold                                                                
+1       0.9990     1.0000  0.9980 0.9990   1.0000             1.0000
+2       1.0000     1.0000  1.0000 1.0000   1.0000             1.0000
+3       1.0000     1.0000  1.0000 1.0000   1.0000             1.0000
+4       1.0000     1.0000  1.0000 1.0000   1.0000             1.0000
+5       1.0000     1.0000  1.0000 1.0000   1.0000             1.0000
+
+--- GradientBoosting ---
+      accuracy  precision  recall     f1  roc_auc  average_precision
+fold                                                                
+1       1.0000     1.0000  1.0000 1.0000   1.0000             1.0000
+2       0.9990     1.0000  0.9980 0.9990   1.0000             1.0000
+3       1.0000     1.0000  1.0000 1.0000   1.0000             1.0000
+4       1.0000     1.0000  1.0000 1.0000   1.0000             1.0000
+5       0.9980     0.9960  1.0000 0.9980   1.0000             1.0000
+
+--- LogisticRegression ---
+      accuracy  precision  recall     f1  roc_auc  average_precision
+fold                                                                
+1       1.0000     1.0000  1.0000 1.0000   1.0000             1.0000
+2       1.0000     1.0000  1.0000 1.0000   1.0000             1.0000
+3       1.0000     1.0000  1.0000 1.0000   1.0000             1.0000
+4       0.9980     1.0000  0.9960 0.9980   1.0000             1.0000
+5       1.0000     1.0000  1.0000 1.0000   1.0000             1.0000
+
+
+==============================================================================
+  Table C.4 - Per-feature descriptive statistics by class
+==============================================================================
+
+Summary statistics computed separately for the legit and triggerbot subsets.
+n is the per-class sample count.
+
+             feature      class    n      mean       std        min       q25    median       q75       max
+                tier      legit 2499   13.8007    7.7890     1.0000    7.0000   14.0000   21.0000   27.0000
+                tier triggerbot 2501   14.0668    7.8023     1.0000    7.0000   14.0000   21.0000   27.0000
+               kills      legit 2499   15.9508    6.6388     0.0000   11.0000   16.0000   21.0000   37.0000
+               kills triggerbot 2501   30.7869   13.3047     1.0000   21.0000   30.0000   40.0000   76.0000
+              deaths      legit 2499    9.3697    4.2813     1.0000    6.0000    9.0000   12.0000   26.0000
+              deaths triggerbot 2501    4.3339    3.1108     0.0000    2.0000    4.0000    6.0000   17.0000
+             assists      legit 2499    6.9740    2.7285     0.0000    5.0000    7.0000    9.0000   16.0000
+             assists triggerbot 2501   13.2103    5.5159     0.0000    9.0000   13.0000   17.0000   35.0000
+               score      legit 2499 2126.3545  955.6229   226.0000 1296.5000 2047.0000 2876.0000 4662.0000
+               score triggerbot 2501 4115.1643 1863.0003   508.0000 2536.0000 3959.0000 5487.0000 9876.0000
+                 kda      legit 2499    4.1156    5.4176     0.1111    1.4000    2.4444    4.5635   43.0000
+                 kda triggerbot 2501   19.3558   19.8815     0.1818    5.5000   10.7500   26.0000  101.0000
+            kd_ratio      legit 2499    2.8907    3.9120     0.0000    0.9231    1.6923    3.1667   33.0000
+            kd_ratio triggerbot 2501   13.6105   14.3358     0.0769    3.8000    7.5000   18.3333   76.0000
+      score_per_kill      legit 2499  149.4779  108.3337    28.2500  105.0000  133.3478  164.4271 1635.0000
+      score_per_kill triggerbot 2501  153.1679  147.3394    25.4000  106.0000  133.0526  165.0000 3038.0000
+        hit_accuracy      legit 2499    0.6497    0.2976     0.1000    0.4000    0.6667    1.0000    1.0000
+        hit_accuracy triggerbot 2501    0.8621    0.2007     0.5000    0.6667    1.0000    1.0000    1.0000
+      time_on_target      legit 2499  278.8586   77.4904    80.0000  225.9500  278.8000  331.9500  500.0000
+      time_on_target triggerbot 2501   40.4719   18.9237    10.0000   26.4000   39.9000   53.3000  123.4000
+       aim_deviation      legit 2499    1.8026    0.6882     0.4000    1.3170    1.8000    2.2735    4.0000
+       aim_deviation triggerbot 2501    1.8155    0.6818     0.4000    1.3230    1.8090    2.2810    4.0000
+       reaction_time      legit 2499  451.4734  106.6903   170.5000  373.1000  448.7000  526.4000  766.3000
+       reaction_time triggerbot 2501  210.4722   74.9544    63.8000  148.4000  207.2000  273.0000  403.5000
+         shots_fired      legit 2499    5.5074    2.9141     1.0000    3.0000    5.0000    8.0000   10.0000
+         shots_fired triggerbot 2501    2.0016    0.8232     1.0000    1.0000    2.0000    3.0000    3.0000
+           shots_hit      legit 2499    3.2537    2.2822     1.0000    1.0000    3.0000    5.0000   10.0000
+           shots_hit triggerbot 2501    1.6677    0.7437     1.0000    1.0000    2.0000    2.0000    3.0000
+            wallbang      legit 2499    0.0000    0.0000     0.0000    0.0000    0.0000    0.0000    0.0000
+            wallbang triggerbot 2501    0.0000    0.0000     0.0000    0.0000    0.0000    0.0000    0.0000
+       kill_distance      legit 2499  487.3687  286.2125     0.5831  234.0157  491.5699  728.2964  999.6997
+       kill_distance triggerbot 2501  493.9071  286.1571     0.6708  248.1628  489.7223  734.7167  999.3564
+  sub_100ms_reaction      legit 2499    0.0000    0.0000     0.0000    0.0000    0.0000    0.0000    0.0000
+  sub_100ms_reaction triggerbot 2501    0.0560    0.2299     0.0000    0.0000    0.0000    0.0000    1.0000
+   sub_50ms_reaction      legit 2499    0.0000    0.0000     0.0000    0.0000    0.0000    0.0000    0.0000
+   sub_50ms_reaction triggerbot 2501    0.0000    0.0000     0.0000    0.0000    0.0000    0.0000    0.0000
+     precision_score      legit 2499    0.4461    0.3652     0.0343    0.2177    0.3650    0.5475    2.5000
+     precision_score triggerbot 2501    0.5803    0.3802     0.1250    0.3633    0.4824    0.6640    2.5000
+ tier_relative_kills      legit 2499   -0.0436    3.9433   -15.0000   -3.0000    0.0000    3.0000   15.0000
+ tier_relative_kills triggerbot 2501   14.6281    9.8851   -11.0000    8.0000   14.0000   21.0000   51.0000
+tier_relative_deaths      legit 2499   -0.0288    2.8288    -9.0000   -2.0000    0.0000    2.0000   11.0000
+tier_relative_deaths triggerbot 2501   -4.9716    3.3718   -15.0000   -7.0000   -5.0000   -3.0000    6.0000
+ tier_relative_score      legit 2499   -9.1797  343.1488 -1477.0000 -233.0000   -4.0000  216.0000 1236.0000
+ tier_relative_score triggerbot 2501 1952.5894 1136.2031  -563.0000 1092.0000 1766.0000 2665.0000 6276.0000
+             kills_z      legit 2499   -0.0109    0.9858    -3.7500   -0.7500    0.0000    0.7500    3.7500
+             kills_z triggerbot 2501    3.6570    2.4713    -2.7500    2.0000    3.5000    5.2500   12.7500
+            deaths_z      legit 2499   -0.0080    0.9710    -3.0000   -0.6667    0.0000    0.6667    3.6667
+            deaths_z triggerbot 2501   -1.6999    1.1130    -5.0000   -2.3333   -1.6667   -1.0000    2.0000
+             score_z      legit 2499   -0.0349    1.0158    -3.6925   -0.7351   -0.0143    0.6645    3.1200
+             score_z triggerbot 2501    5.6106    2.6358    -1.9600    3.7375    5.4367    7.3289   15.2675
+
+==============================================================================
+  Table C.5 - Candidate model hyperparameters
+==============================================================================
+
+                                     estimator  preprocessing                                                                           key_params
+model                                                                                                                                             
+RandomForest            RandomForestClassifier           None        class_weight=None, max_depth=10, n_estimators=200, n_jobs=-1, random_state=42
+GradientBoosting    GradientBoostingClassifier           None                    learning_rate=0.1, max_depth=3, n_estimators=200, random_state=42
+LogisticRegression          LogisticRegression  scaler -> clf  C=1.0, class_weight=None, max_iter=2000, n_jobs=None, random_state=42, solver=lbfgs
